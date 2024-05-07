@@ -137,7 +137,7 @@ app.post('/createUser', async (req, res) => {
         res.redirect('/signup');
     }
 
-    var hashedPassword = await bcrpyt.hash(password, saltRounds);
+    var hashedPassword = await bcrypt.hash(password, saltRounds);
     await userCollection.insertOne({username: username, password: hashedPassword});
     console.log("Inserted User");
 

@@ -131,7 +131,6 @@ app.get("/signup", (req, res) => {
     res.send(`Sign Up 
     <form action='/createUser' method='post'>
     <input name='username' type='text' placeholder='username'>
-    <input name='email' type='email' placeholder='email'>
     <input name='password' type='password' placeholder='password'>
     <button>Sign Up</button>
     </form>`);

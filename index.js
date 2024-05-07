@@ -82,6 +82,20 @@ app.post('/submitUser', async (req, res) => {
     var username = req.body.username;
     var password = req.body.password;
 
+    if(!username) {
+        res.send(`Missing username
+        <a href='/login'>Try again</a>
+        `);
+        return;
+    }
+
+    if(!password) {
+        res.send(`Missing password
+        <a href='/login'>Try again</a>
+        `);
+        return;
+    }
+
     const schema = Joi.string().max(20).required();
     const validationResult = schema.validate(username);
     if (validationResult.error != null) {
@@ -107,7 +121,7 @@ app.post('/submitUser', async (req, res) => {
         return;
     } else {
         res.send(`Incorrect Login
-        <a href='/login>Try again</a>
+        <a href='/login'>Try again</a>
         `);
         return;
     }

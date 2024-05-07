@@ -29,7 +29,7 @@ app.use(express.urlencoded({extended: true}));
 
 
 app.use(session({
-    secret: secret,
+    secret: NODE_SESSION_SECRET,
     saveUninitialized: false, 
     resave: false,
     store: store
@@ -51,7 +51,7 @@ app.get("/signup", (req, res) => {
 
 app.post("/register", (req, res) => {
     const {username, email, password} = req.body;
-    let user = await UserModel.findOne({email});
+    // let user = await UserModel.findOne({email});
     if (user) {
         return res.redirect('/signup');
     }

@@ -106,8 +106,9 @@ app.post('/submitUser', async (req, res) => {
         res.redirect('/');
         return;
     } else {
-        console.log("Incorrect password");
-        res.redirect('/login');
+        res.send(`Incorrect Login
+        <a href='/login>Try again</a>
+        `);
         return;
     }
 });
